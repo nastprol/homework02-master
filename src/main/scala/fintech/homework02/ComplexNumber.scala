@@ -20,7 +20,7 @@ class ComplexNumber (val real: Double, val image: Double){
     val module = GetModule()
     val arg = GetArgument()
     val m = math.pow(module, pow)
-    new ComplexNumber(math.round(math.cos(pow * arg) * m), math.round(math.sin(pow * arg) * m))
+    new ComplexNumber(math.cos(pow * arg) * m, math.sin(pow * arg) * m)
   }
 
   override def toString(): String= {
@@ -29,7 +29,9 @@ class ComplexNumber (val real: Double, val image: Double){
     else real.toString
   }
 
-  def equals(b: ComplexNumber): Boolean = math.abs(real - b.real) < eps && math.abs(image - b.image) < eps
+  private def equals(b: ComplexNumber): Boolean = math.abs(real - b.real) < eps && math.abs(image - b.image) < eps
+
+  override def equals(a: Any): Boolean= (!a.isInstanceOf[ComplexNumber]) && equals(a.asInstanceOf[ComplexNumber])
 
   def == (b: ComplexNumber): Boolean = equals(b)
 

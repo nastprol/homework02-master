@@ -39,7 +39,6 @@ class ComplexNumberSpec extends FlatSpec with Matchers {
   "Complex number z in pow n" should "|z|^n*(cos(nf)+sin(nf)*i)" in {
     val a = new ComplexNumber(5, 2)
     val c = a ~ 2
-    c.real should be (21)
-    c.image should be (20)
+    c == new ComplexNumber(21, 20) should be (true)
   }
 }
