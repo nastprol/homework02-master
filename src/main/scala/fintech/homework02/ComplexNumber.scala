@@ -2,8 +2,6 @@ package fintech.homework02
 
 class ComplexNumber(val real: Double, val image: Double) {
 
-  val eps = 0.00000001
-
   def +(b: ComplexNumber): ComplexNumber = {
     new ComplexNumber(real + b.real, image + b.image)
   }
@@ -39,7 +37,7 @@ class ComplexNumber(val real: Double, val image: Double) {
     hash
   }
 
-  def ==(b: ComplexNumber): Boolean = math.abs(real - b.real) < eps && math.abs(image - b.image) < eps
+  def ==(b: ComplexNumber): Boolean = real == b.real && image == b.image
 
   // Написать класс описывающий комплексные числа.
   // Реализовать проверку на равенство, умножение и сложение, toString.

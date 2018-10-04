@@ -7,16 +7,14 @@ class ComplexNumberSpec extends FlatSpec with Matchers {
     val a = new ComplexNumber(3, 8)
     val b = new ComplexNumber(2, 1)
     val c = a + b
-    c.real should be (5)
-    c.image should be (9)
+    c should be (new ComplexNumber(5, 9))
   }
 
   "Composition of (a+bi)*(c+di)" should "be equal to (ac-bd)+(bc-ad)i" in {
     val a = new ComplexNumber(3, 4)
     val b = new ComplexNumber(2, 3)
     val c = a * b
-    c.real should be (-6)
-    c.image should be (17)
+    c should be (new ComplexNumber(-6, 17))
   }
 
   "ComplexNumber (a+bi) and (c+di)" should "be equal if a == c and b == i" in {
@@ -39,6 +37,8 @@ class ComplexNumberSpec extends FlatSpec with Matchers {
   "Complex number z in pow n" should "|z|^n*(cos(nf)+sin(nf)*i)" in {
     val a = new ComplexNumber(5, 2)
     val c = a ~ 2
-    c should be (new ComplexNumber(21, 20))
+    val eps = 0.00000001
+    math.abs(c.real - 21) < eps should be (true)
+    math.abs(c.image - 20) < eps should be (true)
   }
 }
