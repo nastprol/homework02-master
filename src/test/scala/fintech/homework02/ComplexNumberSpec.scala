@@ -3,7 +3,7 @@ import org.scalatest.{FlatSpec, Matchers}
 
 class ComplexNumberSpec extends FlatSpec with Matchers {
 
-  "Sun of complex numbers " should "be equaal to sum of real and sum of images" in {
+  "Sun of complex numbers " should "be equal to sum of real and sum of images" in {
     val a = new ComplexNumber(3, 8)
     val b = new ComplexNumber(2, 1)
     val c = a + b
@@ -39,6 +39,6 @@ class ComplexNumberSpec extends FlatSpec with Matchers {
   "Complex number z in pow n" should "|z|^n*(cos(nf)+sin(nf)*i)" in {
     val a = new ComplexNumber(5, 2)
     val c = a ~ 2
-    c == new ComplexNumber(21, 20) should be (true)
+    c should be (new ComplexNumber(21, 20))
   }
 }
